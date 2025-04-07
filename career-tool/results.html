@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Career Matches | CareerPath</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .progress-bar {
+            height: 6px;
+        }
+        .career-card {
+            transition: all 0.3s ease;
+        }
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .match-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">CareerPath</h1>
+            <span class="text-sm">Your Results</span>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-gray-200">
+        <div class="progress-bar bg-blue-600 w-full"></div>
+    </div>
+
+    <!-- Results Section -->
+    <main class="container mx-auto py-8 px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Your Career Matches</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Based on your personality and interests, here are careers that might be a great fit for you.
+            </p>
+        </div>
+
+        <!-- Career Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="careerResults">
+            <!-- Career cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <a href="assessment-psychometric.html" class="bg-white text-blue-600 border border-blue-600 font-bold py-3 px-6 rounded-full hover:bg-blue-50 transition duration-300 text-center">
+                <i class="fas fa-redo mr-2"></i> Retake Assessment
+            </a>
+            <button onclick="shareResults()" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-share-alt mr-2"></i> Share Results
+            </button>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+            <h3 class="text-xl font-semibold mb-4">How helpful were these results?</h3>
+            <div class="flex justify-center space-x-4 mb-4">
+                <button class="emoji-btn text-3xl hover:scale-110 transition" onclick="submitFeedback(1)">😞</button>
+                <button class="emoji-btn text-3xl hover:scale-110 transition" onclick="submitFeedback(2)">😐</button>
+                <button class="emoji-btn text-3xl hover:scale-110 transition" onclick="submitFeedback(3)">😊</button>
+                <button class="emoji-btn text-3xl hover:scale-110 transition" onclick="submitFeedback(4)">😍</button>
+            </div>
+            <p class="text-sm text-gray-500 text-center">Your feedback helps us improve the assessment</p>
+        </div>
+    </main>
+
+    <script src="js/assessment.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Calculate matches using the assessment logic
+            const matchedCareers = CareerPath.calculateCareerMatches();
+            
+            // Display results
+            const resultsContainer = document.getElementById('careerResults');
+            if (matchedCareers.length > 0) {
+                resultsContainer.innerHTML = matchedCareers.map(career => `
+                    <div class="career-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                        <div class="match-badge bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            ${career.matchScore}% Match
+                        </div>
+                        <img src="${career.image}" alt="${career.name}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">${career.name}</h3>
+                            <p class="text-gray-600 mb-4">${career.description}</p>
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-800">Learn more</a>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                resultsContainer.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <h3 class="text-xl font-bold mb-4">No career matches found</h3>
+                        <p class="text-gray-600 mb-6">Try adjusting your answers or selecting different interests</p>
+                        <a href="assessment-psychometric.html" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+                            Retake Assessment
+                        </a>
+                    </div>
+                `;
+            }
+        });
+
+        function shareResults() {
+            alert('Share functionality would be implemented here');
+        }
+
+        function submitFeedback(rating) {
+            alert(`Thanks for your ${rating} star feedback!`);
+            // In a real app, this would send to a server
+        }
+    </script>
+</body>
+</html>
