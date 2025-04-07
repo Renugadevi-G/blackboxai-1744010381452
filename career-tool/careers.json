@@ -1,0 +1,25 @@
+{
+    "careers": [
+        {
+            "name": "Software Developer",
+            "description": "Design and build computer programs and applications.",
+            "image": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg",
+            "personality": ["T", "J"],
+            "interests": ["coding", "math"]
+        },
+        {
+            "name": "Graphic Designer",
+            "description": "Create visual concepts to communicate ideas.",
+            "image": "https://images.pexels.com/photos/11035371/pexels-photo-11035371.jpeg",
+            "personality": ["F", "P"],
+            "interests": ["drawing", "creative"]
+        },
+        {
+            "name": "Science Teacher",
+            "description": "Educate students about scientific concepts.",
+            "image": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg",
+            "personality": ["E", "F"],
+            "interests": ["science", "teaching"]
+        }
+    ]
+}
