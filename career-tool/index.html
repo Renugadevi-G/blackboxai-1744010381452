@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">CareerPath</h1>
+            <a href="about.html" class="hover:text-blue-200">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Discover Your Perfect Career</h2>
+            <p class="text-xl mb-8">Take our quick assessment to find careers that match your personality and interests</p>
+            <a href="assessment-psychometric.html" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">Start Assessment</a>
+        </div>
+    </section>
+
+    <!-- Progress Indicator -->
+    <section class="bg-gray-100 py-12 px-4">
+        <div class="container mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-6">How It Works</h3>
+            <div class="flex justify-center">
+                <div class="w-64">
+                    <div class="flex justify-between mb-2">
+                        <span class="bg-blue-600 text-white rounded-full h-8 w-8 flex items-center justify-center">1</span>
+                        <span class="bg-gray-300 rounded-full h-8 w-8 flex items-center justify-center">2</span>
+                        <span class="bg-gray-300 rounded-full h-8 w-8 flex items-center justify-center">3</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span>Personality</span>
+                        <span>Interests</span>
+                        <span>Results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 CareerPath. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
