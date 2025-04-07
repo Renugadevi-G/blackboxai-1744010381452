@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Assessment | CareerPath</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .progress-bar {
+            height: 6px;
+            transition: width 0.3s ease;
+        }
+        .interest-card {
+            transition: all 0.2s ease;
+        }
+        .interest-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        input[type="checkbox"]:checked + label {
+            background-color: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">CareerPath</h1>
+            <span class="text-sm">Interest Assessment</span>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-gray-200">
+        <div class="progress-bar bg-blue-600 w-50" id="progressBar"></div>
+    </div>
+
+    <!-- Assessment Form -->
+    <main class="container mx-auto py-8 px-4 max-w-4xl">
+        <form id="interestForm">
+            <h2 class="text-2xl font-bold mb-6 text-center">Select activities you enjoy</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <!-- STEM Interests -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-600">
+                        <i class="fas fa-microscope mr-2"></i> STEM Activities
+                    </h3>
+                    <div class="space-y-3">
+                        <input type="checkbox" name="interests" id="coding" value="coding" class="hidden">
+                        <label for="coding" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Coding/Programming
+                        </label>
+                        
+                        <input type="checkbox" name="interests" id="math" value="math" class="hidden">
+                        <label for="math" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Solving Math Problems
+                        </label>
+                        
+                        <input type="checkbox" name="interests" id="experiments" value="experiments" class="hidden">
+                        <label for="experiments" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Science Experiments
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Creative Interests -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-600">
+                        <i class="fas fa-palette mr-2"></i> Creative Activities
+                    </h3>
+                    <div class="space-y-3">
+                        <input type="checkbox" name="interests" id="drawing" value="drawing" class="hidden">
+                        <label for="drawing" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Drawing/Painting
+                        </label>
+                        
+                        <input type="checkbox" name="interests" id="writing" value="writing" class="hidden">
+                        <label for="writing" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Creative Writing
+                        </label>
+                        
+                        <input type="checkbox" name="interests" id="music" value="music" class="hidden">
+                        <label for="music" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Playing Music
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- New Interest Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-600">
+                        <i class="fas fa-book mr-2"></i> Learning Activities
+                    </h3>
+                    <div class="space-y-3">
+                        <input type="checkbox" name="interests" id="reading" value="reading" class="hidden">
+                        <label for="reading" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Reading books/articles
+                        </label>
+                        <input type="checkbox" name="interests" id="courses" value="courses" class="hidden">
+                        <label for="courses" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Online courses
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- New Interest Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold mb-4 text-blue-600">
+                        <i class="fas fa-hands-helping mr-2"></i> Helping Activities
+                    </h3>
+                    <div class="space-y-3">
+                        <input type="checkbox" name="interests" id="mentoring" value="mentoring" class="hidden">
+                        <label for="mentoring" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Mentoring others
+                        </label>
+                        <input type="checkbox" name="interests" id="volunteering" value="volunteering" class="hidden">
+                        <label for="volunteering" class="interest-card block p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer">
+                            Volunteering
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mt-8">
+                <a href="assessment-psychometric.html" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> Back
+                </a>
+                <button type="button" onclick="submitAssessment()" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+                    See Results <i class="fas fa-chart-bar ml-2"></i>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function submitAssessment() {
+            const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+                .map(el => el.value);
+            
+            if (selectedInterests.length < 3) {
+                alert('Please select at least 3 interests to get meaningful results');
+                return;
+            }
+            
+            // Store interests in localStorage
+            localStorage.setItem('selected_interests', JSON.stringify(selectedInterests));
+            
+            // Redirect to results page
+            window.location.href = 'results.html';
+        }
+
+        // Update progress bar
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '75%'; // 75% complete (3 of 4 steps)
+        });
+    </script>
+</body>
+</html>
