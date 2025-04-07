@@ -32,7 +32,7 @@ function calculateCareerMatches() {
             interests.includes(interest)
         ).length;
         
-        const interestScore = (matchedInterests / career.interests.length) * 50;
+        const interestScore = (matchedInterests / career.interests.length) * 60;
         score += interestScore;
         
         return {
@@ -103,8 +103,29 @@ function validateForm(formId) {
     return isValid;
 }
 
+function submitAssessment() {
+    const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+        .map(el => el.value);
+    
+    if (selectedInterests.length < 5) {
+        alert('Please select at least 5 interests to get meaningful results');
+        return;
+    }
+    
+    // Store interests in localStorage
+    localStorage.setItem('selected_interests', JSON.stringify(selectedInterests));
+    
+    // Track assessment count
+    const count = parseInt(localStorage.getItem('assessmentCount') || 0) + 1;
+    localStorage.setItem('assessmentCount', count.toString());
+    
+    // Redirect to results page
+    window.location.href = 'results.html';
+}
+
 // Export functions for use in HTML files
 window.CareerPath = {
     calculateCareerMatches,
-    validateForm
+    validateForm,
+    submitAssessment
 };
