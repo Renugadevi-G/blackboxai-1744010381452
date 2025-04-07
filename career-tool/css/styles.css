@@ -1,0 +1,57 @@
+/* Custom styles for CareerPath */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    color: #1a202c; /* Dark gray */
+}
+
+.bg-blue-600 {
+    background-color: #2563eb; /* Tailwind blue */
+}
+
+.bg-gray-50 {
+    background-color: #f7fafc; /* Light gray */
+}
+
+.text-blue-600 {
+    color: #2563eb; /* Tailwind blue */
+}
+
+.text-gray-600 {
+    color: #4a5568; /* Dark gray */
+}
+
+.text-white {
+    color: #ffffff; /* White */
+}
+
+.text-sm {
+    font-size: 0.875rem; /* Small text */
+}
+
+.text-lg {
+    font-size: 1.125rem; /* Large text */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* Rounded corners */
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Medium shadow */
+}
+
+.hover\:bg-blue-50:hover {
+    background-color: #ebf8ff; /* Light blue on hover */
+}
+
+.transition {
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.cursor-pointer {
+    cursor: pointer; /* Pointer cursor */
+}
